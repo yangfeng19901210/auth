@@ -21,11 +21,11 @@ spring:
             tokenUri: ${spring.security.oauth2.client.provider.oauth-server.issuer-uri}/oauth2/token
         registration:
           # 下面这个string可以自定义，这里自定义的要和最下面redirect-uri的最后一个请求地址对应上
-          messaging-client-oidc:
+          google:
             #认证提供者，标识由哪个认证服务器进行认证，和上面的oauth-server进行关联
             provider: oauth-server
             #客户端名称
-            client-name: web平台
+            client-name: google平台
             #客户端id，从认证平台申请的客户端id
             client-id: oidc-client
             #客户端秘钥
@@ -40,7 +40,7 @@ spring:
             # 该接口会收到code授权码之后，会去调用授权服务器获取token，
             # 也就是我们上方配置的${spring.security.oauth2.client.provider.oauth-server.tokenUri}
             # 也可以使用自定义的接口，只不过需要我们自己拿到code之后再去调用资源服务器获取token
-            redirect-uri: http://spring-oauth-client:9001/login/oauth2/code/messaging-client-oidc
+            redirect-uri: http://spring-oauth-client:9001/login/oauth2/code/google
             scope:
               - profile
               - openid

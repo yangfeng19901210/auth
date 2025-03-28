@@ -128,7 +128,7 @@ public class SecurityConfig {
 				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
 				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
 				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-				.redirectUri("http://spring-oauth-client:9001/login/oauth2/code/messaging-client-oidc")
+				.redirectUri("http://spring-oauth-client:9001/login/oauth2/code/google")
 				//我们暂时还没有客户端服务，以免重定向跳转错误导致接收不到授权码
 				.redirectUri("http://www.baidu.com")
 				.postLogoutRedirectUri("http://127.0.0.1:8080/")
@@ -138,7 +138,7 @@ public class SecurityConfig {
 				// 客户端设置用户需要确认授权
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
 				.tokenSettings(TokenSettings.builder()
-						.accessTokenTimeToLive(Duration.ofMinutes(120))  // Access Token 过期时间
+						.accessTokenTimeToLive(Duration.ofMinutes(960))  // Access Token 过期时间
 						.refreshTokenTimeToLive(Duration.ofDays(7))      // Refresh Token 过期时间
 						.build())
 				.build();
